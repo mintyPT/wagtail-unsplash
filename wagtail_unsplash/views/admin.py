@@ -1,7 +1,6 @@
-import os
 import urllib.request
+import io
 
-from django.conf import settings
 from django.core.files import File
 from django.http import HttpRequest
 from django.shortcuts import redirect
@@ -78,22 +77,20 @@ def add_unsplash_image_to_wagtail(image_id):
         query=urllib.parse.urlencode(query_params, doseq=True)
     )
 
-    # Define a new file path in your static files directory
-    new_file_path = os.path.join(
-        settings.STATIC_ROOT,
-        "images",
-        f"{unsplash_photo.id}.{file_extension}",
+    # Download image into memory
+    response = urllib.request.urlopen(raw_url)
+    image_data = response.read()
+
+    # Create a BytesIO object
+    image_buffer = io.BytesIO(image_data)
+
+    Image = get_image_model()
+    image_file = File(image_buffer, name=f"{unsplash_photo.id}.{file_extension}")
+
+    image_obj = Image.objects.create(
+        title=f"Unsplash image ({unsplash_photo.id})",
+        file=image_file,
+        width=unsplash_photo.width,
+        height=unsplash_photo.height,
     )
-
-    urllib.request.urlretrieve(raw_url, new_file_path)
-
-    with open(new_file_path, "rb") as fp:
-        Image = get_image_model()
-        image_file = File(fp, name=f"{unsplash_photo.id}.{file_extension}")
-        image_obj = Image.objects.create(
-            title=f"Unsplash image ({unsplash_photo.id})",
-            file=image_file,
-            width=unsplash_photo.width,
-            height=unsplash_photo.height,
-        )
-        return image_obj
+    return image_obj
