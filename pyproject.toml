@@ -1,6 +1,6 @@
 
 [project]
-name = "wagtail-unsplash"
+name = "wagtail-unsplashed"
 version = "1.0.1"
 description = "Use unsplash.com images in your Wagtail site"
 authors = [
