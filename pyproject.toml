@@ -1,28 +1,128 @@
-[build-system]
-requires = ["setuptools>=42", "wheel"]
-build-backend = "setuptools.build_meta"
 
-[tool.poetry]
+[project]
 name = "wagtail-unsplash"
 version = "1.0.1"
 description = "Use unsplash.com images in your Wagtail site"
-authors = ["Cameron Lamb <jafacakes2011@hotmail.co.uk>"]
-license = "MIT"
+authors = [
+	{ name = "Cameron Lamb", email= "jafacakes2011@hotmail.co.uk" },
+	{ name = "Mauro Santos", email = "mauro.goncalo@gmail.com" }
+]
+license = {file="LICENCE.txt"}
 readme = "README.md"
+keywords = ['python']
+requires-python = ">=3.9,<4.0"
+classifiers = [
+    "Intended Audience :: Developers",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "wagtail>5.2, <6.1",
+    "python-unsplash = ^1.2.5",
+    "queryish = ^0.2",
+]
 
-[tool.poetry.dependencies]
-python = "^3.11"
-wagtail = ">5.2, <6.1"
-python-unsplash = "^1.2.5"
-queryish = "^0.2"
+[project.urls]
+Homepage = "https://mintyPT.github.io/wagtail-unsplash/"
+Repository = "https://github.com/mintyPT/wagtail-unsplash"
+Documentation = "https://mintyPT.github.io/wagtail-unsplash/"
 
-[tool.poetry.group.utils]
-optional = true
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.2.0",
+    "pre-commit>=2.20.0",
+    "tox-uv>=1.11.3",
+    "deptry>=0.20.0",
+    "mypy>=0.991",
+    "pytest-cov>=4.0.0",
+    "ruff>=0.6.9",
+    "mkdocs>=1.4.2",
+    "mkdocs-material>=8.5.10",
+    "mkdocstrings[python]>=0.26.1",
+]
 
-[tool.poetry.group.utils.dependencies]
-isort = "*"
-flake8 = "*"
-black = "*"
-mypy = "*"
-django-stubs = "*"
-types-freezegun = "*"
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["wagtail_unsplash"]
+
+
+[tool.mypy]
+files = ["wagtail_unsplash"]
+disallow_untyped_defs = true
+disallow_any_unimported = true
+no_implicit_optional = true
+check_untyped_defs = true
+warn_return_any = true
+warn_unused_ignores = true
+show_error_codes = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 120
+fix = true
+
+[tool.ruff.lint]
+select = [
+    # flake8-2020
+    "YTT",
+    # flake8-bandit
+    "S",
+    # flake8-bugbear
+    "B",
+    # flake8-builtins
+    "A",
+    # flake8-comprehensions
+    "C4",
+    # flake8-debugger
+    "T10",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+    # mccabe
+    "C90",
+    # pycodestyle
+    "E", "W",
+    # pyflakes
+    "F",
+    # pygrep-hooks
+    "PGH",
+    # pyupgrade
+    "UP",
+    # ruff
+    "RUF",
+    # tryceratops
+    "TRY",
+]
+ignore = [
+    # LineTooLong
+    "E501",
+    # DoNotAssignLambda
+    "E731",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101"]
+
+[tool.ruff.format]
+preview = true
+
+[tool.coverage.report]
+skip_empty = true
+
+[tool.coverage.run]
+branch = true
+source = ["wagtail_unsplash"]
+

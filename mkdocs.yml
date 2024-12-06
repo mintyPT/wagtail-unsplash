@@ -1,0 +1,52 @@
+site_name: wagtail-unsplash
+repo_url: https://github.com/mintyPT/wagtail-unsplash
+site_url: https://mintyPT.github.io/wagtail-unsplash
+site_description: PROJECT_DESCRIPTION
+site_author: Mauro Santos
+edit_uri: edit/main/docs/
+repo_name: mintyPT/wagtail-unsplash
+copyright: Maintained by <a href="https://mintyPT.com">mintyPT</a>.
+
+nav:
+  - Home: index.md
+  - Modules: modules.md
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [wagtail_unsplash]
+theme:
+  name: material
+  feature:
+    tabs: true
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: deep orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/mintyPT/wagtail-unsplash
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/wagtail-unsplash
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
