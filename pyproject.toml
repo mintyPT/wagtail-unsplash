@@ -23,9 +23,9 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = [
-    "wagtail>5.2, <6.1",
-    "python-unsplash = ^1.2.5",
-    "queryish = ^0.2",
+    "python-unsplash==1.2.5",
+    "wagtail>5.2,<6.1",
+    "queryish==0.2",
 ]
 
 [project.urls]
