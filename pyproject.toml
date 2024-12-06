@@ -1,7 +1,7 @@
 
 [project]
 name = "wagtail-unsplashed"
-version = "1.0.4"
+version = "1.0.7"
 description = "Use unsplash.com images in your Wagtail site"
 authors = [
 	{ name = "Cameron Lamb", email= "jafacakes2011@hotmail.co.uk" },
