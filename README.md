@@ -20,7 +20,7 @@ This package uses the [python-unsplash](https://github.com/yakupadakli/python-un
 Install using pip:
 
 ```sh
-pip install wagtail-unsplash
+pip install wagtail-unsplashed
 ```
 
 After installing the package, add `wagtail_unsplashed` to installed apps in your settings file:
