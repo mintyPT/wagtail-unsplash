@@ -23,14 +23,14 @@ Install using pip:
 pip install wagtail-unsplash
 ```
 
-After installing the package, add `wagtail_unsplash` to installed apps in your settings file:
+After installing the package, add `wagtail_unsplashed` to installed apps in your settings file:
 
 ```python
 # settings.py
 
 INSTALLED_APPS = [
     ...
-    'wagtail_unsplash',
+    'wagtail_unsplashed',
     ...
 ]
 ```
@@ -39,7 +39,7 @@ and add the API credentials:
 
 ```python
 # settings.py
-WAGTAIL_UNSPLASH = {
+WAGTAIL_UNSPLASHED = {
     "CLIENT_ID": "",
     "CLIENT_SECRET": ""
 }

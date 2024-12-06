@@ -15,7 +15,7 @@ plugins:
   - mkdocstrings:
       handlers:
         python:
-          paths: [wagtail_unsplash]
+          paths: [wagtail_unsplashed]
 theme:
   name: material
   feature:

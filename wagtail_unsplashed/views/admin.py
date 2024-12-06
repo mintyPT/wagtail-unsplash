@@ -11,7 +11,7 @@ from django.views.generic import ListView
 from wagtail.admin.forms.search import SearchForm
 from wagtail.images import get_image_model
 
-from wagtail_unsplash.models import UnsplashPhoto
+from wagtail_unsplashed.models import UnsplashPhoto
 
 
 def get_search_form(request: HttpRequest) -> SearchForm:
@@ -23,7 +23,7 @@ def get_search_form(request: HttpRequest) -> SearchForm:
 def search_unsplash_images_index(request: HttpRequest):
     return TemplateResponse(
         request,
-        "wagtail_unsplash/search.html",
+        "wagtail_unsplashed/search.html",
         {
             "search_form": get_search_form(request),
         },
@@ -35,7 +35,7 @@ class SearchUnsplashImagesView(ListView):
     context_object_name = "results"
 
     def get_template_names(self) -> list[str]:
-        return ["wagtail_unsplash/results.html"]
+        return ["wagtail_unsplashed/results.html"]
 
     def get_queryset(self):
         query_string = None
@@ -85,7 +85,8 @@ def add_unsplash_image_to_wagtail(image_id):
     image_buffer = io.BytesIO(image_data)
 
     Image = get_image_model()
-    image_file = File(image_buffer, name=f"{unsplash_photo.id}.{file_extension}")
+    image_file = File(
+        image_buffer, name=f"{unsplash_photo.id}.{file_extension}")
 
     image_obj = Image.objects.create(
         title=f"Unsplash image ({unsplash_photo.id})",

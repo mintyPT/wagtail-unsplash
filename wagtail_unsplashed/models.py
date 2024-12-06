@@ -1,7 +1,7 @@
 from django.utils.translation import gettext_lazy as _
 from queryish import Queryish, VirtualModel
 
-from wagtail_unsplash.api import api
+from wagtail_unsplashed.api import api
 
 PAGE_COUNT = 30
 

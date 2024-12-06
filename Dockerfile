@@ -18,4 +18,3 @@ ADD . /app
 # Sync the project
 RUN uv sync --frozen
 
-CMD [ "python", "wagtail_unsplash/foo.py"]

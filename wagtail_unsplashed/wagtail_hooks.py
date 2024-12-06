@@ -2,7 +2,7 @@ from django.urls import path, reverse_lazy
 from wagtail import hooks
 from wagtail.admin.menu import MenuItem
 
-from wagtail_unsplash.views.admin import (
+from wagtail_unsplashed.views.admin import (
     SearchUnsplashImagesView,
     add_unsplash_image,
     search_unsplash_images_index,
