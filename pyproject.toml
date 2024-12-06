@@ -4,7 +4,7 @@ name = "wagtail-unsplashed"
 version = "1.0.2"
 description = "Use unsplash.com images in your Wagtail site"
 authors = [
-	{ name = "Cameron Lamb", email= "jafacakes2011@hotmail.co.uk" },uv venv
+	{ name = "Cameron Lamb", email= "jafacakes2011@hotmail.co.uk" },
 	{ name = "Mauro Santos", email = "mauro.goncalo@gmail.com" }
 ]
 license = {file="LICENCE.txt"}
