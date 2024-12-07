@@ -51,9 +51,6 @@ dev-dependencies = [
 requires = ["setuptools >= 61.0"]
 build-backend = "setuptools.build_meta"
 
-[tool.setuptools]
-py-modules = ["wagtail_unsplashed"]
-
 
 [tool.mypy]
 files = ["wagtail_unsplashed"]

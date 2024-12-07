@@ -1584,7 +1584,7 @@ wheels = [
 
 [[package]]
 name = "wagtail-unsplashed"
-version = "1.0.1"
+version = "1.0.7"
 source = { editable = "." }
 dependencies = [
     { name = "python-unsplash" },
@@ -1610,7 +1610,7 @@ dev = [
 requires-dist = [
     { name = "python-unsplash", specifier = "==1.2.5" },
     { name = "queryish", specifier = "==0.2" },
-    { name = "wagtail", specifier = ">5.2,<6.1" },
+    { name = "wagtail", specifier = ">5.2" },
 ]
 
 [package.metadata.requires-dev]
